@@ -1,0 +1,3 @@
+-r requirements.txt
+# Install the repository root instead when developing DeepEval itself.
+deepeval==4.3.4

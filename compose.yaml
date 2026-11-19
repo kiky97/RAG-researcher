@@ -1,0 +1,17 @@
+services:
+  raglab:
+    build:
+      context: .
+      args:
+        WITH_DEEPEVAL: ${WITH_DEEPEVAL:-false}
+    ports:
+      - "127.0.0.1:8000:8000"
+    environment:
+      LLM_BASE_URL: ${LLM_BASE_URL:-https://api.openai.com/v1}
+      LLM_API_KEY: ${LLM_API_KEY:-}
+      LLM_MODEL: ${LLM_MODEL:-gpt-4o-mini}
+      JUDGE_MODEL: ${JUDGE_MODEL:-gpt-4o-mini}
+    volumes:
+      - raglab-data:/app/data
+volumes:
+  raglab-data:
